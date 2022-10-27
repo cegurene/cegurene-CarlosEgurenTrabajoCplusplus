@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1666895664 source:c:\users\charl\desktop\c++ estructuras de datos\carlosegurenesteban\src\cola.cpp
+	"Cola.h"
+
+1666895681 c:\users\charl\desktop\c++ estructuras de datos\carlosegurenesteban\include\cola.h
+	"NodoCola.h"
+
+1666896399 c:\users\charl\desktop\c++ estructuras de datos\carlosegurenesteban\include\nodocola.h
+	<Paquete.h>
+
+1666896344 c:\users\charl\desktop\c++ estructuras de datos\carlosegurenesteban\include\paquete.h
+	<iostream>
+
+1666895761 source:c:\users\charl\desktop\c++ estructuras de datos\carlosegurenesteban\src\pila.cpp
+	"Pila.h"
+	<iostream>
+
+1666895848 c:\users\charl\desktop\c++ estructuras de datos\carlosegurenesteban\include\pila.h
+	<Paquete.h>
+
+1666895961 source:c:\users\charl\desktop\c++ estructuras de datos\carlosegurenesteban\src\nodocola.cpp
+	"NodoCola.h"
+
