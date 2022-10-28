@@ -21,3 +21,13 @@
 1666895961 source:c:\users\charl\desktop\c++ estructuras de datos\carlosegurenesteban\src\nodocola.cpp
 	"NodoCola.h"
 
+1666945130 source:c:\users\charl\desktop\c++ estructuras de datos\carlosegurenesteban\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	<string>
+	<Pila.h>
+	<Cola.h>
+	<NodoCola.h>
+	<Paquete.h>
+

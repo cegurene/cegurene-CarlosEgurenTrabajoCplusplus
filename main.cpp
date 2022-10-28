@@ -33,18 +33,8 @@ int main(int argc, char** argv)
 
     /* Prueba de creacion de paquete, asi como sus datos identificadores
     Paquete p1;
-    string dni = generarDni();
-    p1.dni = dni;
-    string id = generarId(2);
-    p1.id = id;
-    int c[6];
-    crearCoordenada(c);
-    p1.coordenada.gradosLa = c[0];
-    p1.coordenada.gradosLa = c[1];
-    p1.coordenada.gradosLa = c[2];
-    p1.coordenada.gradosLa = c[3];
-    p1.coordenada.gradosLa = c[4];
-    p1.coordenada.gradosLa = c[5];
+    p1.generarDNI();
+    p1.generarID(2);
 
     cout<< "El ID del paquete es: " + p1.id <<endl;
     cout<< "El DNI del cliente es: " + p1.dni <<endl;

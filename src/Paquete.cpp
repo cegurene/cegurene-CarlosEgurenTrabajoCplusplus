@@ -3,11 +3,13 @@
 
 using namespace std;
 
+int numero;
+
 Paquete::Paquete()
 {
     this->generarDNI();
     this->generarCoordenada();
-    this->generarID(int);
+    this->generarID(numero);
 }
 
 void Paquete::generarID(int n)
@@ -95,8 +97,8 @@ void Paquete::mostrarEtiqueta()
 {
     cout<< "Paquete:" <<endl;
     cout<< "ID: " << this->e.id <<endl;
-    cout<< "Con latitud: "  << this->e.coordenada.gradosLa << "grados " << this->e.coordenada.minutosLa << "' " << this->e.coordenada.segundosLa << "\" " <<endl;
-    cout<< "Con longitud: " << this->e.coordenada.gradosLon << "grados " << this->e.coordenada.minutosLon << "' " << this->e.coordenada.segundosLon<< "\" " <<endl;
+    cout<< "Con latitud: "  << this->e.coordenada.gradosLa << " grados " << this->e.coordenada.minutosLa << "' " << this->e.coordenada.segundosLa << "\" " <<endl;
+    cout<< "Con longitud: " << this->e.coordenada.gradosLon << " grados " << this->e.coordenada.minutosLon << "' " << this->e.coordenada.segundosLon<< "\" " <<endl;
     cout<< "DNI: " << this->e.dni << endl;
 }
 
