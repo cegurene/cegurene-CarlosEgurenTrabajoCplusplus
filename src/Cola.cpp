@@ -13,7 +13,7 @@ Cola::~Cola()
     }
 }
 
-void Cola::insertar(Paquete v)
+void Cola::insertar(Paquete* v)
 {
     pnodoCola nuevo;
     nuevo = new NodoCola(v);
@@ -27,10 +27,10 @@ void Cola::insertar(Paquete v)
     }
 }
 
-Paquete Cola::eliminar()
+Paquete* Cola::eliminar()
 {
     pnodoCola nodo;
-    Paquete v;
+    Paquete* v;
     nodo = primero;
     if(nodo){
         primero = nodo->siguiente;
@@ -47,7 +47,7 @@ void Cola::mostrar()
 {
     pnodoCola aux = primero;
     while(aux){
-        aux->valor.mostrarEtiqueta();
+        aux->valor->mostrarEtiqueta();
 
         cout<<endl;
 
@@ -56,7 +56,7 @@ void Cola::mostrar()
     cout<< endl;
 }
 
-Paquete Cola::verPrimero()
+Paquete* Cola::verPrimero()
 {
     return primero->valor;
 }

@@ -33,16 +33,17 @@ Paquete* Pila::sacar()
 
 void Pila::cantidadPila()
 {
-  cout<< "La pila tiene" << this->tope << " elementos.";
+  cout<< "La pila tiene " << (this->tope) +1 << " elementos."<<endl;
 }
 
 void Pila::imprimirPila()
 {
-  if(this->pilaVacia() == 0){
+  if(this->pilaVacia() == 1){
     cout<< "La pila esta vacia" <<endl;
   }else{
     for(int i = this->tope; i >= 0; i--){
-      cout<< " -> " << this->valores[i]->e.id;
+      this->valores[i]->mostrarEtiqueta();
+      cout<<endl;
     }
     cout<<endl;
   }

@@ -6,11 +6,11 @@
 class NodoCola
 {
     public:
-        NodoCola(Paquete v, NodoCola* sig = NULL);
+        NodoCola(Paquete* v, NodoCola* sig = NULL);
         ~NodoCola();
 
     private:
-        Paquete valor;
+        Paquete* valor;
         NodoCola* siguiente;
 
         friend class Cola;

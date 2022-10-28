@@ -5,10 +5,10 @@ class Cola
     public:
         Cola();
         ~Cola();
-        void insertar(Paquete v);
-        Paquete eliminar();
+        void insertar(Paquete* v);
+        Paquete* eliminar();
         void mostrar();
-        Paquete verPrimero();
+        Paquete* verPrimero();
 
     private:
         pnodoCola primero, ultimo;

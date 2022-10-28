@@ -31,112 +31,206 @@ int main(int argc, char** argv)
 {
     srand(time(NULL)); //para que los numeros random dependan del tiempo en el que se ejecuta
 
-    /* Prueba de creacion de paquete, asi como sus datos identificadores
-    Paquete p1;
-    p1.generarDNI();
-    p1.generarID(2);
-
-    cout<< "El ID del paquete es: " + p1.id <<endl;
-    cout<< "El DNI del cliente es: " + p1.dni <<endl;
-    cout<< "Aqui se debe mostrar el id de los paquetes de la cola:" <<endl;
-    //cout<< "Las coordenadas del paquete son: " + p1.coordenada.gradosLa + " " + p1.coordenada.minutosLa + " "+ p1.coordenada.segundosLa + " "+ p1.coordenada.gradosLon + " "+ p1.coordenada.minutosLon + " "+ p1.coordenada.segundosLon << endl;
-    string z = zonaReparto(c);
-    cout<< "La zona en la que reparte es: " + z << endl;
-    */
-
-    /* Prueba de creacion de cola, asi como sus metodos y procedimientos
-    Cola cola;
-    Paquete p1;
-    p1.id = "IdDelPaquete1";
-
-    cola.insertar(p1);
-    cola.mostrar();
-    Paquete p2 = cola.eliminar();
-    cout<< p2.id;
-    */
-
-
-    /*Prueba de creacion de una pila
-    Paquete p;
-    p.id = "IdDelPaquete";
-
-    Pila pila;
-    IniciaPila(&pila);
-    Push(&pila, p);
-    ImprimePila(&pila);
-    */
-
     // Creacion aleatoria de N1 paquetes
     cout<< "Creando paquetes aleatorios..." <<endl;
     Cola cola;
     for(int i = 0; i < N1; i++){
-        Paquete p;
-        p.generarCoordenada();
-        p.generarDNI();
-        p.generarID(i + 1);
+        Paquete* p = new Paquete();
+        p->generarCoordenada();
+        p->generarDNI();
+        p->generarID(i + 1);
 
         cola.insertar(p);
     }
+    cola.mostrar();
     cout<< "Creacion de paquetes terminada." <<endl;
     cout<<endl;
+
+    Pila pilaNO;
+    Pila pilaNE;
+    Pila pilaSO;
+    Pila pilaSE;
 
     Cola colaNO;
     Cola colaNE;
     Cola colaSO;
     Cola colaSE;
 
+    int numPaquetesNO;
+    int numPaquetesNE;
+    int numPaquetesSO;
+    int numPaquetesSE;
+
+    int numFurgonetasNO = 1;
+    int numFurgonetasNE = 1;
+    int numFurgonetasSO = 1;
+    int numFurgonetasSE = 1;
+
     int contador = 0;
     while(contador < 10){
-        cout<< "Pulse ENTER para mandar 10 paquetes a sus respectivas zonas de reparto."<<endl;
+        cout<< "Pulse ENTER para mandar 10 paquetes a repartir."<<endl;
         if(isEnterPressed()){
-            for(int i = 0; i < N2; i++){
-                Paquete p = cola.eliminar();
+            cout<< "Si se ha pulsado ENTER." <<endl;
+            cout<<endl;
 
-                if(p.zonaReparto() == 1){
-                    colaNO.insertar(p);
-                }
-                else{
-                    if(p.zonaReparto() == 2){
-                        colaNE.insertar(p);
+            for(int i = 0; i < N2; i++){
+                Paquete* p = cola.eliminar();
+
+                if(p->zonaReparto() == 1){
+                    if(pilaNO.pilaLlena() != 1){
+                        pilaNO.meter(p);
                     }
                     else{
-                        if(p.zonaReparto() == 3){
-                            colaSO.insertar(p);
+                        cout<< "La furgoneta de la zona NO llena. Contiene los paquetes:" <<endl;
+                        pilaNO.imprimirPila();
+                        cout<< "Se va a proceder a repartir estos paquetes." <<endl;
+                        cout<<endl;
+
+                        for(int j = 0; j < 5; j++){
+                            Paquete* paquetePila = pilaNO.sacar();
+                            colaNO.insertar(paquetePila);
+                        }
+                        pilaNO.meter(p);
+                        numFurgonetasNO++;
+                    }
+                    numPaquetesNO++;
+                }
+                else{
+                    if(p->zonaReparto() == 2){
+                        if(pilaNE.pilaLlena() != 1){
+                            pilaNE.meter(p);
                         }
                         else{
-                            colaSE.insertar(p);
+                            cout<< "La furgoneta de la zona NE llena. Contiene los paquetes:" <<endl;
+                            pilaNE.imprimirPila();
+                            cout<< "Se va a proceder a repartir estos paquetes." <<endl;
+                            cout<<endl;
+
+                            for(int j = 0; j < 5; j++){
+                                Paquete* paquetePila = pilaNE.sacar();
+                                colaNE.insertar(paquetePila);
+                            }
+                            pilaNE.meter(p);
+                            numFurgonetasNE++;
+                        }
+                        numPaquetesNE++;
+                    }
+                    else{
+                        if(p->zonaReparto() == 3){
+                            if(pilaSO.pilaLlena() != 1){
+                                pilaSO.meter(p);
+                            }
+                            else{
+                                cout<< "La furgoneta de la zona SO llena. Contiene los paquetes:" <<endl;
+                                pilaSO.imprimirPila();
+                                cout<< "Se va a proceder a repartir estos paquetes." <<endl;
+                                cout<<endl;
+
+                                for(int j = 0; j < 5; j++){
+                                    Paquete* paquetePila = pilaSO.sacar();
+                                    colaSO.insertar(paquetePila);
+                                }
+                                pilaSO.meter(p);
+                                numFurgonetasSO++;
+                            }
+                            numPaquetesSO++;
+                        }
+                        else{
+                            if(pilaSE.pilaLlena() != 1){
+                                pilaSE.meter(p);
+                            }
+                            else{
+                                cout<< "La furgoneta de la zona SE llena. Contiene los paquetes:" <<endl;
+                                pilaSE.imprimirPila();
+                                cout<< "Se va a proceder a repartir estos paquetes." <<endl;
+                                cout<<endl;
+
+                                for(int j = 0; j < 5; j++){
+                                    Paquete* paquetePila = pilaSE.sacar();
+                                    colaSE.insertar(paquetePila);
+                                }
+                                pilaSE.meter(p);
+                                numFurgonetasSE++;
+                            }
+                            numPaquetesSE++;
                         }
                     }
                 }
             }
-
-            cout<< "Si se ha pulsado ENTER." <<endl;
             contador++;
         }
         else{
             cout<< "No se ha pulsado ENTER." <<endl;
         }
     }
+
+    // Comprobamos que las pilas estan vacias. Si no lo estan, las vaciamos
+    if(pilaNO.pilaVacia() != 1){
+        while(pilaNO.pilaVacia() != 1){
+            Paquete* p = pilaNO.sacar();
+            colaNO.insertar(p);
+        }
+    }
+    if(pilaNE.pilaVacia() != 1){
+        while(pilaNE.pilaVacia() != 1){
+            Paquete* p = pilaNE.sacar();
+            colaNE.insertar(p);
+        }
+    }
+    if(pilaSO.pilaVacia() != 1){
+        while(pilaSO.pilaVacia() != 1){
+            Paquete* p = pilaSO.sacar();
+            colaSO.insertar(p);
+        }
+    }
+    if(pilaSE.pilaVacia() != 1){
+        while(pilaSE.pilaVacia() != 1){
+            Paquete* p = pilaSE.sacar();
+            colaSE.insertar(p);
+        }
+    }
+
     cout<< "Todos los paquetes procesados." <<endl;
     cout<<endl;
 
     //Ahora se van a ver todos los ID de los paquetes de cada zona de reparto
+    cout<< "Se va a mostrar la cola NO." <<endl;
+    colaNO.mostrar();
+    cout<<endl;
+
     cout<< "Se va a mostrar la cola NE." <<endl;
     colaNE.mostrar();
+    cout<<endl;
 
-    /*Esto es una prueba para comprobar que el programa funciona bien hasta aqui
-    Paquete pSE = colaSE.eliminar();
-    cout<< pSE.id<<endl;
-    cout<< pSE.dni<<endl;
-    int cSE[6];
-    cSE[0] = pSE.coordenada.gradosLa;
-    cSE[1] = pSE.coordenada.minutosLa;
-    cSE[2] = pSE.coordenada.segundosLa;
-    cSE[3] = pSE.coordenada.gradosLon;
-    cSE[4] = pSE.coordenada.minutosLon;
-    cSE[5] = pSE.coordenada.segundosLon;
-    cout<< cSE[0] << " " << cSE[1] << " " << cSE[2] << ", " << cSE[3] << " " << cSE[4] << " " << cSE[5] <<endl;*/
+    cout<< "Se va a mostrar la cola SO." <<endl;
+    colaSO.mostrar();
+    cout<<endl;
 
+    cout<< "Se va a mostrar la cola SE." <<endl;
+    colaSE.mostrar();
+    cout<<endl;
+
+    cout<< "La zona NO ha recibido " << numPaquetesNO << " paquetes y se han utilizado " << numFurgonetasNO << " furgonetas." <<endl;
+    cout<< "La zona NE ha recibido " << numPaquetesNE << " paquetes y se han utilizado " << numFurgonetasNE << " furgonetas." <<endl;
+    cout<< "La zona SO ha recibido " << numPaquetesSO << " paquetes y se han utilizado " << numFurgonetasSO << " furgonetas." <<endl;
+    cout<< "La zona SE ha recibido " << numPaquetesSE << " paquetes y se han utilizado " << numFurgonetasSE << " furgonetas." <<endl;
+
+    if( (numPaquetesNO >= numPaquetesNE) && (numPaquetesNO >= numPaquetesSE) && (numPaquetesNO >= numPaquetesSO) ){
+        cout<< "La zona que mas paquetes ha recibido es la zona NO." <<endl;
+    }
+    else{
+        if( (numPaquetesNE >= numPaquetesNO) && (numPaquetesNE >= numPaquetesSE) && (numPaquetesNE >= numPaquetesSO) ){
+            cout<< "La zona que mas paquetes ha recibido es la zona NE." <<endl;
+        }
+        else{
+            if( (numPaquetesSE >= numPaquetesNO) && (numPaquetesSE >= numPaquetesNE) && (numPaquetesSE >= numPaquetesSO) ){
+                cout<< "La zona que mas paquetes ha recibido es la zona SE." <<endl;
+            }
+            else{
+                cout<< "La zona que mas paquetes ha recibido es la zona SO." <<endl;
+            }
+        }
+    }
 
     cout<<endl;
     return 0;
