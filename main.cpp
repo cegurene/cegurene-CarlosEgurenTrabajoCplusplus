@@ -34,12 +34,8 @@ int main(int argc, char** argv)
     // Creacion aleatoria de N1 paquetes
     cout<< "Creando paquetes aleatorios..." <<endl;
     Cola cola;
-    for(int i = 0; i < N1; i++){
-        Paquete* p = new Paquete();
-        p->generarCoordenada();
-        p->generarDNI();
-        p->generarID(i + 1);
-
+    for(int i = 1; i <= N1; i++){
+        Paquete* p = new Paquete(i);
         cola.insertar(p);
     }
     cola.mostrar();
@@ -56,15 +52,15 @@ int main(int argc, char** argv)
     Cola colaSO;
     Cola colaSE;
 
-    int numPaquetesNO;
-    int numPaquetesNE;
-    int numPaquetesSO;
-    int numPaquetesSE;
+    int numPaquetesNO = 0;
+    int numPaquetesNE = 0;
+    int numPaquetesSO = 0;
+    int numPaquetesSE = 0;
 
-    int numFurgonetasNO = 1;
-    int numFurgonetasNE = 1;
-    int numFurgonetasSO = 1;
-    int numFurgonetasSE = 1;
+    int numFurgonetasNO = 0;
+    int numFurgonetasNE = 0;
+    int numFurgonetasSO = 0;
+    int numFurgonetasSE = 0;
 
     int contador = 0;
     while(contador < 10){
@@ -170,24 +166,28 @@ int main(int argc, char** argv)
             Paquete* p = pilaNO.sacar();
             colaNO.insertar(p);
         }
+        numFurgonetasNO++;
     }
     if(pilaNE.pilaVacia() != 1){
         while(pilaNE.pilaVacia() != 1){
             Paquete* p = pilaNE.sacar();
             colaNE.insertar(p);
         }
+        numFurgonetasNE++;
     }
     if(pilaSO.pilaVacia() != 1){
         while(pilaSO.pilaVacia() != 1){
             Paquete* p = pilaSO.sacar();
             colaSO.insertar(p);
         }
+        numFurgonetasSO++;
     }
     if(pilaSE.pilaVacia() != 1){
         while(pilaSE.pilaVacia() != 1){
             Paquete* p = pilaSE.sacar();
             colaSE.insertar(p);
         }
+        numFurgonetasSE++;
     }
 
     cout<< "Todos los paquetes procesados." <<endl;

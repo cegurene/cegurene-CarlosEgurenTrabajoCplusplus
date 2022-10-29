@@ -7,7 +7,7 @@ using namespace std;
 
 struct Paquete
 {
-        Paquete(); //Declarar paquetes
+        Paquete(int n); //Declarar paquetes
         void mostrarEtiqueta();
         string getID();
         ~Paquete();

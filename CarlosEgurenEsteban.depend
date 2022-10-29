@@ -35,3 +35,75 @@
 	<Paquete.h>
 	<string>
 
+1667054220 source:c:\users\andre\onedrive\escritorio\carlosegurenesteban\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	<string>
+	<Pila.h>
+	<Cola.h>
+	<NodoCola.h>
+	<Paquete.h>
+
+1666895850 c:\users\andre\onedrive\escritorio\carlosegurenesteban\include\pila.h
+	<Paquete.h>
+
+1667054135 c:\users\andre\onedrive\escritorio\carlosegurenesteban\include\paquete.h
+	<iostream>
+
+1666965828 c:\users\andre\onedrive\escritorio\carlosegurenesteban\include\cola.h
+	"NodoCola.h"
+
+1666965936 c:\users\andre\onedrive\escritorio\carlosegurenesteban\include\nodocola.h
+	<Paquete.h>
+
+1666965954 source:c:\users\andre\onedrive\escritorio\carlosegurenesteban\src\cola.cpp
+	"Cola.h"
+
+1666965854 source:c:\users\andre\onedrive\escritorio\carlosegurenesteban\src\nodocola.cpp
+	"NodoCola.h"
+
+1667054121 source:c:\users\andre\onedrive\escritorio\carlosegurenesteban\src\paquete.cpp
+	<Paquete.h>
+	<string>
+
+1666963044 source:c:\users\andre\onedrive\escritorio\carlosegurenesteban\src\pila.cpp
+	"Pila.h"
+	<iostream>
+
+1667054220 source:c:\users\charl\desktop\carlosegurenesteban\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	<string>
+	<Pila.h>
+	<Cola.h>
+	<NodoCola.h>
+	<Paquete.h>
+
+1666895850 c:\users\charl\desktop\carlosegurenesteban\include\pila.h
+	<Paquete.h>
+
+1667054135 c:\users\charl\desktop\carlosegurenesteban\include\paquete.h
+	<iostream>
+
+1666965828 c:\users\charl\desktop\carlosegurenesteban\include\cola.h
+	"NodoCola.h"
+
+1666965936 c:\users\charl\desktop\carlosegurenesteban\include\nodocola.h
+	<Paquete.h>
+
+1666965954 source:c:\users\charl\desktop\carlosegurenesteban\src\cola.cpp
+	"Cola.h"
+
+1666965854 source:c:\users\charl\desktop\carlosegurenesteban\src\nodocola.cpp
+	"NodoCola.h"
+
+1667054121 source:c:\users\charl\desktop\carlosegurenesteban\src\paquete.cpp
+	<Paquete.h>
+	<string>
+
+1666963044 source:c:\users\charl\desktop\carlosegurenesteban\src\pila.cpp
+	"Pila.h"
+	<iostream>
+

@@ -3,13 +3,13 @@
 
 using namespace std;
 
-int numero;
 
-Paquete::Paquete()
+
+Paquete::Paquete(int n)
 {
     this->generarDNI();
     this->generarCoordenada();
-    this->generarID(numero);
+    this->generarID(n);
 }
 
 void Paquete::generarID(int n)
